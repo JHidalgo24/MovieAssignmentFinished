@@ -15,6 +15,7 @@ namespace MovieListAssignment
 {
     class Program
     {
+        public static string movieFile = Path.GetFullPath("movies.csv");
         public static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         
         public static void Main(string[] args)
@@ -107,7 +108,7 @@ namespace MovieListAssignment
 
                 var records = new List<Movie> {new Movie {Id = id + 1, title = titlePicked, genres = genreString},};
                 var config = new CsvConfiguration(CultureInfo.InvariantCulture) {HasHeaderRecord = false,};
-                using (var stream = File.Open("C:\\Users\\justi\\Desktop\\MovieAssignment\\movies.csv",
+                using (var stream = File.Open(movieFile,
                     FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
@@ -164,7 +165,7 @@ namespace MovieListAssignment
             try
             {
                 using (var streamReader =
-                    new StreamReader("C:\\Users\\justi\\Desktop\\MovieAssignment\\movies.csv"))
+                    new StreamReader(movieFile))
                 using (var csv = new CsvReader(streamReader, CultureInfo.InvariantCulture))
                 {
                     var records = csv.GetRecords<Movie>().ToList();
