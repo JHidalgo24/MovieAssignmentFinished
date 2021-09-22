@@ -1,0 +1,8 @@
+
+2021-09-22 16:15:37.7435|Info|Option 2 chosen| 
+2021-09-22 16:15:49.4107|Debug|First Number: 13 Second Number: 13 out of 9125 films| 
+2021-09-22 16:15:58.9233|Info|Option 3 chosen| 
+2021-09-22 16:16:02.1526|Info|User searched for: Hot Rod| 
+2021-09-22 16:17:15.5531|Trace|Application ended| 
+2021-09-22 16:17:35.8190|Debug|Could not find a part of the path 'C:\Users\justi\Desktop\MovieAssignment\...\MovieAssignment\movies.csv'. error happened| 
+2021-09-22 16:17:43.8278|Trace|Application ended| 
