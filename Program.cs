@@ -15,7 +15,7 @@ namespace MovieListAssignment
 {
     class Program
     {
-        public static string movieFile = Path.GetFullPath("movies.csv");
+        public static string movieFile = "C:\\Users\\justi\\Desktop\\MovieAssignment\\movies.csv";
         public static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         public static void Main(string[] args)
@@ -27,7 +27,7 @@ namespace MovieListAssignment
             do
             {
                 PrintMenu();
-                number = GetValueGetter();
+                number = ValueGetter();
                 switch (number)
                 {
                     case 1:
@@ -39,13 +39,13 @@ namespace MovieListAssignment
                         logger.Info("Option 2 chosen");
                         System.Console.WriteLine($"There are {ReturnFilmList().Count} movies in file what range do you wish to see?");
                         Console.WriteLine($"What is the first number from 1 - {ReturnFilmList().Count}");
-                        int firstNumber = GetValueGetter();
+                        int firstNumber = ValueGetter();
                         Console.WriteLine($"What is the second number from {firstNumber} - {ReturnFilmList().Count}");
-                        int secondNumber = GetValueGetter();
+                        int secondNumber = ValueGetter();
                         while (secondNumber < firstNumber)
                         {
                             System.Console.WriteLine("Second value can't be smaller!");
-                            secondNumber = GetValueGetter();
+                            secondNumber = ValueGetter();
                         }
                         logger.Debug($"First Number: {firstNumber} Second Number: {secondNumber} out of {ReturnFilmList().Count} films");
                         ListFilms(firstNumber, secondNumber);
@@ -99,7 +99,7 @@ namespace MovieListAssignment
                 string year = "(" + Console.ReadLine() + ")";
                 titlePicked = titlePicked + " " + year;
                 Console.WriteLine("How many genres do you want to add?");
-                genresTotal = GetValueGetter();
+                genresTotal = ValueGetter();
                 for (int i = 0; i < genresTotal; i++)
                 {
                     Console.WriteLine($"What is the {i + 1} genre?");
@@ -183,7 +183,7 @@ namespace MovieListAssignment
             return movies;
         }
 
-        public static int GetValueGetter()
+        public static int ValueGetter()
         {
             string option = Console.ReadLine();
             int number;

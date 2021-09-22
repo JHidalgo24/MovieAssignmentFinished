@@ -5,12 +5,15 @@ using Xunit;
 public class testclass
 {
 
+    //should pass as Toy Story 1 is in the file
     [Fact]
     public void PassingDuplicateTest()
     {
-        Assert.True(MovieListAssignment.Program.DuplicateChecker("Toy Story 1"));
+        Assert.True(MovieListAssignment.Program.DuplicateChecker("Toy Story"));
     }
 
+
+    //only Toy Story 5 should fail
     [Theory]
     [InlineData("Toy Story 2")]
     [InlineData("Narnia")]
