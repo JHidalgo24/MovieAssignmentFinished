@@ -14,10 +14,10 @@ namespace MovieListAssignment
     {
 
         [Name("movieId")] public int Id { get; set; }
-        [Name("title")] public string title{ get; set; }
-        [Name("genres")] public string genres{ get; set; }
-        
-        
+        [Name("title")] public string title { get; set; }
+        [Name("genres")] public string genres { get; set; }
+
+
         public override string ToString()
         {
             return $"ID:{Id} Title:{title} Genre:{genres}";

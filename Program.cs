@@ -17,14 +17,15 @@ namespace MovieListAssignment
     {
         public static string movieFile = Path.GetFullPath("movies.csv");
         public static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-        
+
         public static void Main(string[] args)
         {
-        
+
             int number = 1;
             int lastId = 0;
-             
-            do {
+
+            do
+            {
                 PrintMenu();
                 number = GetValueGetter();
                 switch (number)
@@ -50,7 +51,7 @@ namespace MovieListAssignment
                         ListFilms(firstNumber, secondNumber);
                         break;
                     case 3:
-                    logger.Info("Option 3 chosen");
+                        logger.Info("Option 3 chosen");
                         Console.WriteLine("What movie do you want to look up?(Press Enter for all)");
                         string filmPicked = Console.ReadLine();
                         logger.Info($"User searched for: {filmPicked}");
@@ -65,7 +66,7 @@ namespace MovieListAssignment
                         Console.WriteLine("That is not an option sorry!");
                         break;
                 }
-            }while(number != 4);
+            } while (number != 4);
         }
 
         public static void PrintMenu() => Console.WriteLine("What do you want to do?\n1.)Add movie\n2.)List Movies\n3.)Search Movie\n4.)Exit)");
@@ -84,8 +85,8 @@ namespace MovieListAssignment
         {
             try
             {
-                string titlePicked = "",genreString = "";
-                List <string> genresPicked = new List<string>();
+                string titlePicked = "", genreString = "";
+                List<string> genresPicked = new List<string>();
                 int genresTotal;
                 Console.WriteLine("What is the title of the film");
                 titlePicked = Console.ReadLine();
@@ -95,8 +96,8 @@ namespace MovieListAssignment
                     titlePicked = Console.ReadLine();
                 }
                 System.Console.WriteLine("What year was the movie made?");
-                string year = "("+ Console.ReadLine() + ")";
-                titlePicked = titlePicked +" "+ year;
+                string year = "(" + Console.ReadLine() + ")";
+                titlePicked = titlePicked + " " + year;
                 Console.WriteLine("How many genres do you want to add?");
                 genresTotal = GetValueGetter();
                 for (int i = 0; i < genresTotal; i++)
@@ -104,10 +105,10 @@ namespace MovieListAssignment
                     Console.WriteLine($"What is the {i + 1} genre?");
                     genresPicked.Add(Console.ReadLine());
                 }
-                genreString = string.Join("|",genresPicked);
+                genreString = string.Join("|", genresPicked);
 
-                var records = new List<Movie> {new Movie {Id = id + 1, title = titlePicked, genres = genreString},};
-                var config = new CsvConfiguration(CultureInfo.InvariantCulture) {HasHeaderRecord = false,};
+                var records = new List<Movie> { new Movie { Id = id + 1, title = titlePicked, genres = genreString }, };
+                var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
                 using (var stream = File.Open(movieFile,
                     FileMode.Append))
                 using (var writer = new StreamWriter(stream))
@@ -141,7 +142,7 @@ namespace MovieListAssignment
             {
                 logger.Debug($"{e.Message} error happened");
                 Console.WriteLine("Unable to search film");
-            } 
+            }
         }
 
         public static bool DuplicateChecker(string filmPicked)

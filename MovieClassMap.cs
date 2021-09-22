@@ -14,9 +14,9 @@ namespace MovieListAssignment
     {
         public MovieClassMap()
         {
-        Map(m => m.Id).Name("movieId");
-        Map(m=>m.title).Name("title");
-        Map(m=>m.genres).Name("genres");
+            Map(m => m.Id).Name("movieId");
+            Map(m => m.title).Name("title");
+            Map(m => m.genres).Name("genres");
         }
     }
 }
