@@ -148,6 +148,7 @@ namespace MovieListAssignment
         public static bool DuplicateChecker(string filmPicked)
         {
             bool contained = false;
+            try{
             List<Movie> temp = ReturnFilmList();
             foreach (Movie movies in temp)
             {
@@ -158,6 +159,12 @@ namespace MovieListAssignment
                 }
             }
             return contained;
+            }
+            catch(Exception e){
+                System.Console.WriteLine("Unable to return duplicate");
+                logger.Debug(e.Message);
+            }
+            return false;
         }
 
         public static List<Movie> ReturnFilmList()
