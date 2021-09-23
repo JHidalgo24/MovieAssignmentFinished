@@ -11,11 +11,12 @@ using NLog;
 using System.Diagnostics;
 using NLog.Config;
 
-namespace MovieListAssignment
+namespace MovieAssignment 
 {
     class Program
     {
-        public static string movieFile = "C:\\Users\\justi\\Desktop\\MovieAssignment\\movies.csv";
+        
+        public static string movieFile = "Files\\movies.csv";
         public static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         public static void Main(string[] args)

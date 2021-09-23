@@ -8,7 +8,7 @@ using System.Linq;
 using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
 
-namespace MovieListAssignment
+namespace MovieAssignment
 {
     public class Movie
     {

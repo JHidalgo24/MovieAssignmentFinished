@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestPlatform.TestHost;
-using MovieListAssignment;
+using MovieAssignment;
 using Xunit;
 
 public class testclass
@@ -9,7 +9,7 @@ public class testclass
     [Fact]
     public void PassingDuplicateTest()
     {
-        Assert.True(MovieListAssignment.Program.DuplicateChecker("Toy Story"));
+        Assert.True(MovieAssignment.Program.DuplicateChecker("Toy Story"));
     }
 
 
@@ -21,6 +21,6 @@ public class testclass
     [InlineData("Hot Rod")]
     public void TheoryTest(string movie)
     {
-        Assert.True(MovieListAssignment.Program.DuplicateChecker(movie));
+        Assert.True(MovieAssignment.Program.DuplicateChecker(movie));
     }
 }

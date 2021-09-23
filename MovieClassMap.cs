@@ -8,7 +8,7 @@ using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
 using NLog;
 
-namespace MovieListAssignment
+namespace MovieAssignment
 {
     public class MovieClassMap : ClassMap<Movie>
     {
