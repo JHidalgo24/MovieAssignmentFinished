@@ -158,13 +158,12 @@ namespace MovieListAssignment
                     contained = true;
                 }
             }
-            return contained;
             }
             catch(Exception e){
                 System.Console.WriteLine("Unable to return duplicate");
                 logger.Debug(e.Message);
             }
-            return false;
+            return contained;
         }
 
         public static List<Movie> ReturnFilmList()
